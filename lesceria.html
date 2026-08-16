@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les Ceria: Les Privat TK, SD, SMP & SMA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #F6F4EC;
+    --card: #FFFFFF;
+    --rule-blue: #A9C5DE;
+    --margin-red: #C1443A;
+    --ink: #232B3D;
+    --ink-soft: #5B6478;
+    --chalk-green: #33503F;
+    --mustard: #E8A93B;
+    --tab-tk-sd: #E8A93B;
+    --tab-smp: #5B8C7B;
+    --tab-sma: #C1443A;
+    --radius: 14px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.55;
+  }
+  a{ color: inherit; }
+  :focus-visible{ outline: 3px solid var(--chalk-green); outline-offset: 3px; }
+
+  .display{ font-family: 'Kalam', cursive; }
+  .mono{ font-family: 'JetBrains Mono', monospace; }
+
+  .wrap{ max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== HERO — notebook cover ===== */
+  .hero{
+    position: relative;
+    padding: 76px 0 64px;
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0px, transparent 37px,
+        var(--rule-blue) 37px, var(--rule-blue) 38px
+      );
+    background-position: 0 118px;
+    overflow: hidden;
+  }
+  @media (max-width: 640px){
+    .hero{ padding: 48px 0 44px; }
+  }
+  .hero::before{
+    /* red margin line */
+    content:"";
+    position:absolute;
+    top:0; bottom:0; left: 56px;
+    width: 2px;
+    background: var(--margin-red);
+    opacity: 0.55;
+  }
+  @media (max-width: 640px){
+    .hero::before{ left: 28px; }
+  }
+  .hero-inner{ position: relative; padding-left: 40px; }
+  @media (max-width: 640px){ .hero-inner{ padding-left: 16px; } }
+
+  .eyebrow{
+    display:inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--chalk-green);
+    background: rgba(51,80,63,0.08);
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+  }
+  h1.hero-title{
+    font-family: 'Kalam', cursive;
+    font-weight: 700;
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    line-height: 1.08;
+    margin: 0 0 18px;
+    color: var(--ink);
+  }
+  h1.hero-title .accent{ color: var(--margin-red); }
+  .hero-sub{
+    font-size: 1.08rem;
+    color: var(--ink-soft);
+    max-width: 480px;
+    margin: 0 0 30px;
+  }
+  .cta-row{ display:flex; gap: 14px; flex-wrap: wrap; }
+  @media (max-width: 480px){
+    .cta-row{ flex-direction: column; }
+    .btn{ justify-content: center; }
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; font-size: 0.98rem;
+    padding: 13px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.15s ease;
+  }
+  @media (prefers-reduced-motion: reduce){ .btn{ transition: none; } }
+  .btn:hover{ transform: translateY(-2px); }
+  .btn-primary{ background: var(--chalk-green); color: #fff; }
+  .btn-ghost{ background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+
+  /* ===== SECTION HEADERS ===== */
+  section{ padding: 78px 0 54px; }
+  @media (max-width: 640px){ section{ padding: 52px 0 38px; } }
+  .section-label{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--margin-red);
+    margin: 0 0 10px;
+  }
+  h2{
+    font-family: 'Kalam', cursive;
+    font-size: clamp(1.7rem, 4vw, 2.2rem);
+    margin: 0 0 34px;
+  }
+  @media (max-width: 640px){ h2{ margin: 0 0 24px; } }
+
+  /* ===== TUTOR CARDS ===== */
+  .cards{
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .card{
+    position: relative;
+    background: var(--card);
+    border-radius: 18px;
+    padding: 30px 26px 26px 130px;
+    box-shadow: 0 1px 0 rgba(35,43,61,0.06), 0 14px 30px -18px rgba(35,43,61,0.4);
+    border-left: 5px solid var(--tab-color, var(--mustard));
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s ease;
+  }
+  .card.in-view{ opacity: 1; transform: translateY(0); }
+  .card:hover{
+    box-shadow: 0 1px 0 rgba(35,43,61,0.06), 0 22px 40px -18px rgba(35,43,61,0.45);
+    transform: translateY(-4px);
+  }
+  .card.in-view:hover{ transform: translateY(-4px); }
+  @media (prefers-reduced-motion: reduce){
+    .card{ opacity: 1; transform: none; transition: box-shadow 0.25s ease; }
+    .card:hover{ transform: none; }
+  }
+
+  .card::before{
+    /* washi tape */
+    content: attr(data-tag);
+    position: absolute;
+    top: -12px; left: 20px;
+    background: var(--tab-color, var(--mustard));
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 5px 12px;
+    border-radius: 4px;
+    transform: rotate(-2deg);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    z-index: 4;
+  }
+  .card--tksd{ --tab-color: var(--tab-tk-sd); }
+  .card--smp{ --tab-color: var(--tab-smp); }
+  .card--sma{ --tab-color: var(--tab-sma); }
+
+  /* avatar that overlaps the card's left edge */
+  .card-avatar{
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--tab-color, var(--mustard));
+    border: 4px solid #fff;
+    box-shadow: 0 12px 26px -8px rgba(35,43,61,0.45);
+    transform: translateY(-50%) rotate(-5deg);
+    transition: transform 0.25s ease;
+    z-index: 3;
+  }
+  .card-avatar svg{ width: 100%; height: 100%; display: block; }
+  .card:hover .card-avatar{ transform: translateY(-50%) rotate(0deg) scale(1.05); }
+  @media (prefers-reduced-motion: reduce){
+    .card-avatar, .card:hover .card-avatar{ transition: none; }
+  }
+
+  @media (max-width: 560px){
+    .card{ padding: 62px 22px 24px; }
+    .card-avatar{
+      left: 20px; top: -28px;
+      width: 84px; height: 84px;
+      transform: rotate(-5deg);
+    }
+    .card:hover .card-avatar{ transform: rotate(0deg) scale(1.05); }
+    .card::before{
+      left: auto;
+      right: 14px;
+      top: -12px;
+      transform: rotate(2deg);
+      max-width: 150px;
+      white-space: normal;
+      text-align: center;
+      font-size: 10px;
+      line-height: 1.3;
+    }
+  }
+
+  .card-name{ font-family:'Kalam',cursive; font-weight:700; font-size: 1.4rem; margin: 6px 0 2px; }
+  .card-role{ color: var(--ink-soft); font-size: 0.92rem; margin: 0 0 16px; }
+  .card-levels{
+    list-style: none;
+    margin: 0 0 18px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .card-levels li{
+    font-size: 0.9rem;
+    color: var(--ink);
+  }
+  .card-levels .lvl{
+    display: inline-block;
+    min-width: 42px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--ink-soft);
+    margin-right: 8px;
+  }
+  .card-bottom{ display:flex; justify-content: flex-end; border-top: 1px dashed rgba(35,43,61,0.25); padding-top: 14px; }
+  .card-price{
+    display:flex; align-items:baseline; gap:6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--chalk-green);
+  }
+  .card-price small{ font-size: 0.72rem; font-weight:500; color: var(--ink-soft); }
+  .card-chat{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: #fff;
+    background: var(--tab-color, var(--mustard));
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.15s ease;
+  }
+  .card-chat:hover{ transform: translateY(-2px); }
+  @media (prefers-reduced-motion: reduce){ .card-chat{ transition: none; } .card-chat:hover{ transform:none; } }
+
+  /* ===== HARGA LIST ===== */
+  .price-list{
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 8px 28px;
+    box-shadow: 0 1px 0 rgba(35,43,61,0.06), 0 10px 26px -18px rgba(35,43,61,0.35);
+  }
+  @media (max-width: 480px){
+    .price-list{ padding: 6px 18px; }
+  }
+  .price-row{
+    display:flex; justify-content: space-between; align-items:center;
+    gap: 12px;
+    padding: 18px 0;
+    border-bottom: 1px dashed rgba(35,43,61,0.18);
+  }
+  .price-row:last-child{ border-bottom: none; }
+  .price-row .jenjang{ font-weight: 600; }
+  .price-row .ket{ display:block; font-size: 0.85rem; color: var(--ink-soft); font-weight: 400; margin-top: 2px; }
+  .price-row .angka{ font-family:'JetBrains Mono',monospace; font-weight:700; font-size: 1.05rem; white-space: nowrap; }
+  .price-group-title{
+    display: flex;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 22px 0 2px;
+  }
+  .price-group-title:first-child{ margin-top: 6px; }
+  .dot{ display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:9px; vertical-align: middle; flex-shrink: 0; }
+  .dot--a{ background: var(--tab-tk-sd); }
+  .dot--b{ background: var(--tab-smp); }
+  .dot--c{ background: var(--tab-sma); }
+
+  /* ===== TENTANG ===== */
+  .about-text{ max-width: 640px; color: var(--ink-soft); font-size: 1.02rem; }
+  .about-text strong{ color: var(--ink); }
+
+  /* ===== KONTAK (chalkboard) ===== */
+  .contact{
+    background: var(--chalk-green);
+    color: #F3F1E8;
+    border-radius: 20px;
+    padding: 46px 32px;
+    text-align: center;
+  }
+  @media (max-width: 480px){
+    .contact{ padding: 38px 22px; border-radius: 16px; }
+  }
+  .contact h2{ color: #fff; margin-bottom: 10px; }
+  .contact p{ color: rgba(255,255,255,0.78); max-width: 440px; margin: 0 auto 26px; }
+  .contact .btn-primary{ background: var(--mustard); color: var(--ink); }
+  .jam{ margin-top: 22px; font-family:'JetBrains Mono',monospace; font-size: 0.85rem; color: rgba(255,255,255,0.65); }
+
+  footer{
+    text-align:center;
+    padding: 30px 24px 46px;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Les Privat &middot; TK, SD, SMP, SMA</span>
+      <h1 class="hero-title">Belajar jadi PR<br>yang <span class="accent">menyenangkan.</span></h1>
+      <p class="hero-sub">Les Ceria mendatangkan pengajar ke rumah, sesuai jenjang anak. Jadwal fleksibel, bayar per jam, tanpa kontrak paket yang bikin ribet.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#kontak">Chat via WhatsApp</a>
+        <a class="btn btn-ghost" href="#harga">Lihat Harga</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="pengajar" class="wrap">
+    <p class="section-label">Pengajar Kami</p>
+    <h2>Satu pengajar, satu mapel, biar fokus.</h2>
+    <div class="cards">
+
+      <div class="card card--tksd" data-tag="Rp50.000 sampai Rp100.000 / jam">
+        <div class="card-avatar">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="50" fill="#E8A93B"/>
+            <circle cx="50" cy="60" r="27" fill="#F4C9A0"/>
+            <path d="M22 52 Q24 20 50 20 Q76 20 78 52 Q66 40 50 40 Q34 40 22 52 Z" fill="#4A3728"/>
+            <circle cx="66" cy="28" r="9" fill="#4A3728"/>
+            <circle cx="41" cy="58" r="3.2" fill="#232B3D"/>
+            <circle cx="59" cy="58" r="3.2" fill="#232B3D"/>
+            <path d="M39 69 Q50 78 61 69" stroke="#232B3D" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="card-name">Kak Rani</p>
+        <p class="card-role">Matematika &amp; Fisika</p>
+        <ul class="card-levels">
+          <li><span class="lvl">TK</span>Matematika</li>
+          <li><span class="lvl">SD</span>Matematika</li>
+          <li><span class="lvl">SMP</span>Matematika, Fisika</li>
+          <li><span class="lvl">SMA</span>Matematika, Fisika</li>
+        </ul>
+        <div class="card-bottom">
+          <a class="card-chat" href="https://wa.me/6282330804350?text=Halo%20kak%2C%20mau%20tanya-tanya%20dong%20seputar%20les%20ceria">Chat Kak Rani</a>
+        </div>
+      </div>
+
+      <div class="card card--smp" data-tag="Rp75.000 sampai Rp100.000 / jam">
+        <div class="card-avatar">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="50" fill="#5B8C7B"/>
+            <circle cx="50" cy="60" r="27" fill="#E5B48A"/>
+            <path d="M23 50 Q25 22 50 22 Q75 22 77 50 Q75 34 50 34 Q25 34 23 50 Z" fill="#232323"/>
+            <circle cx="41" cy="58" r="3.2" fill="#232B3D"/>
+            <circle cx="59" cy="58" r="3.2" fill="#232B3D"/>
+            <path d="M40 70 Q50 77 60 70" stroke="#232B3D" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+            <path d="M40 73 Q50 68 60 73" stroke="#232323" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="card-name">Kak Bima</p>
+        <p class="card-role">Kimia</p>
+        <ul class="card-levels">
+          <li><span class="lvl">SMP</span>Kimia</li>
+          <li><span class="lvl">SMA</span>Kimia</li>
+        </ul>
+        <div class="card-bottom">
+          <a class="card-chat" href="https://wa.me/6282330804350?text=Halo%20kak%2C%20mau%20tanya-tanya%20dong%20seputar%20les%20ceria">Chat Kak Bima</a>
+        </div>
+      </div>
+
+      <div class="card card--sma" data-tag="Rp75.000 sampai Rp100.000 / jam">
+        <div class="card-avatar">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="50" fill="#C1443A"/>
+            <circle cx="50" cy="60" r="27" fill="#F4C9A0"/>
+            <path d="M21 54 Q22 24 50 24 Q78 24 79 54 Q72 38 50 38 Q28 38 21 54 Z" fill="#5C3A21"/>
+            <rect x="21" y="35" width="58" height="7" rx="3.5" fill="#E8A93B"/>
+            <circle cx="41" cy="58" r="3.2" fill="#232B3D"/>
+            <circle cx="59" cy="58" r="3.2" fill="#232B3D"/>
+            <path d="M39 69 Q50 78 61 69" stroke="#232B3D" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="card-name">Kak Sarah</p>
+        <p class="card-role">Bahasa Inggris</p>
+        <ul class="card-levels">
+          <li><span class="lvl">SMP</span>Bahasa Inggris</li>
+          <li><span class="lvl">SMA</span>Bahasa Inggris</li>
+        </ul>
+        <div class="card-bottom">
+          <a class="card-chat" href="https://wa.me/6282330804350?text=Halo%20kak%2C%20mau%20tanya-tanya%20dong%20seputar%20les%20ceria">Chat Kak Sarah</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="harga" class="wrap">
+    <p class="section-label">Daftar Harga</p>
+    <h2>Tarif per jam, sesuai jenjang.</h2>
+    <div class="price-list">
+
+      <p class="price-group-title"><span class="dot dot--a"></span>Kak Rani &middot; Matematika &amp; Fisika</p>
+      <div class="price-row">
+        <div class="jenjang">TK<span class="ket">Matematika</span></div>
+        <div class="angka">Rp50.000</div>
+      </div>
+      <div class="price-row">
+        <div class="jenjang">SD<span class="ket">Matematika</span></div>
+        <div class="angka">Rp50.000</div>
+      </div>
+      <div class="price-row">
+        <div class="jenjang">SMP<span class="ket">Matematika &amp; Fisika</span></div>
+        <div class="angka">Rp75.000</div>
+      </div>
+      <div class="price-row">
+        <div class="jenjang">SMA<span class="ket">Matematika &amp; Fisika</span></div>
+        <div class="angka">Rp100.000</div>
+      </div>
+
+      <p class="price-group-title"><span class="dot dot--b"></span>Kak Bima &middot; Kimia</p>
+      <div class="price-row">
+        <div class="jenjang">SMP<span class="ket">Kimia</span></div>
+        <div class="angka">Rp75.000</div>
+      </div>
+      <div class="price-row">
+        <div class="jenjang">SMA<span class="ket">Kimia</span></div>
+        <div class="angka">Rp100.000</div>
+      </div>
+
+      <p class="price-group-title"><span class="dot dot--c"></span>Kak Sarah &middot; Bahasa Inggris</p>
+      <div class="price-row">
+        <div class="jenjang">SMP<span class="ket">Bahasa Inggris</span></div>
+        <div class="angka">Rp75.000</div>
+      </div>
+      <div class="price-row">
+        <div class="jenjang">SMA<span class="ket">Bahasa Inggris</span></div>
+        <div class="angka">Rp100.000</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="tentang" class="wrap">
+    <p class="section-label">Tentang Kami</p>
+    <h2>Kenapa Les Ceria?</h2>
+    <p class="about-text">Anak akan lebih mudah memahami pelajaran ketika diajar oleh pengajar yang benar-benar menguasai bidangnya. Karena itu, di Les Ceria setiap pengajar berfokus pada satu mata pelajaran keahliannya, bukan mengajar banyak hal sekaligus secara terbatas. Untuk Matematika, ada Kak Rani. Untuk Kimia, ada Kak Bima. Untuk Bahasa Inggris, ada Kak Sarah. Jadwal les dapat disesuaikan setiap minggu, dan tidak ada kontrak paket yang mengikat.</p>
+  </section>
+
+  <section id="kontak" class="wrap">
+    <div class="contact">
+      <h2>Yuk, mulai jadwalkan les.</h2>
+      <p>Ceritakan jenjang dan kebutuhan belajar anak, kami bantu carikan jadwal yang pas.</p>
+      <a class="btn btn-primary" href="https://wa.me/6282330804350?text=Halo%20kak%2C%20mau%20tanya-tanya%20dong%20seputar%20les%20ceria">Chat via WhatsApp</a>
+      <div class="jam">Senin sampai Sabtu, jam 08.00 sampai 20.00 WIB</div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Les Ceria. Dibuat dengan &hearts; untuk keluarga yang ingin belajar bareng.
+  </footer>
+
+  <script>
+    var cards = document.querySelectorAll('.card');
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      cards.forEach(function(card){ observer.observe(card); });
+    } else {
+      cards.forEach(function(card){ card.classList.add('in-view'); });
+    }
+  </script>
+
+</body>
+</html>
