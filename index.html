@@ -3,7 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Les Ceria: Les Privat TK, SD, SMP & SMA</title>
+<title>Les Ceria: Les Privat TK, SD, SMP & SMA di Pamekasan Kota</title>
+<meta name="description" content="Les privat TK, SD, SMP, dan SMA di Pamekasan Kota. Belajar Matematika, Fisika, Kimia, dan Bahasa Inggris langsung di rumah, tarif per jam mulai Rp50.000, jadwal fleksibel.">
+<meta property="og:title" content="Les Ceria: Les Privat TK, SD, SMP & SMA di Pamekasan Kota">
+<meta property="og:description" content="Les privat datang ke rumah, sesuai jenjang anak. Tarif per jam, tanpa kontrak paket yang mengikat.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2333503F'/%3E%3Ctext x='50' y='67' font-size='50' font-family='Georgia,serif' font-weight='bold' fill='%23F6F4EC' text-anchor='middle'%3ELC%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -24,7 +29,7 @@
   }
 
   *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
+  html{ scroll-behavior: smooth; scroll-padding-top: 70px; }
   body{
     margin:0;
     background: var(--paper);
@@ -39,6 +44,60 @@
   .mono{ font-family: 'JetBrains Mono', monospace; }
 
   .wrap{ max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== NAV ===== */
+  .nav{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(246,244,236,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(35,43,61,0.08);
+  }
+  .nav-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 14px 24px;
+  }
+  .nav-brand{
+    font-family: 'Kalam', cursive;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--ink);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .nav-links{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-links::-webkit-scrollbar{ display: none; }
+  .nav-links a{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .nav-links a:hover{ color: var(--ink); border-color: var(--margin-red); }
+  .nav-cta{
+    background: var(--chalk-green);
+    color: #fff !important;
+    padding: 8px 14px !important;
+    border-radius: 8px;
+    border-bottom: none !important;
+  }
+  @media (prefers-reduced-motion: reduce){ .nav-links a{ transition: none; } }
 
   /* ===== HERO — notebook cover ===== */
   .hero{
@@ -118,16 +177,19 @@
   .btn-ghost{ background: transparent; color: var(--ink); border: 2px solid var(--ink); }
 
   /* ===== SECTION HEADERS ===== */
-  section{ padding: 78px 0 54px; }
-  @media (max-width: 640px){ section{ padding: 52px 0 38px; } }
+  section{ padding: 104px 0 54px; }
+  @media (max-width: 640px){ section{ padding: 70px 0 38px; } }
+  #kontak{ padding-top: 118px; }
+  @media (max-width: 640px){ #kontak{ padding-top: 78px; } }
   .section-label{
     font-family: 'JetBrains Mono', monospace;
     font-size: 12.5px;
     letter-spacing: 0.09em;
     text-transform: uppercase;
     color: var(--margin-red);
-    margin: 0 0 10px;
+    margin: 26px 0 10px;
   }
+  @media (max-width: 640px){ .section-label{ margin-top: 16px; } }
   h2{
     font-family: 'Kalam', cursive;
     font-size: clamp(1.7rem, 4vw, 2.2rem);
@@ -316,6 +378,69 @@
   .about-text{ max-width: 640px; color: var(--ink-soft); font-size: 1.02rem; }
   .about-text strong{ color: var(--ink); }
 
+  /* ===== TESTIMONI ===== */
+  .testi-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 780px){ .testi-grid{ grid-template-columns: 1fr; } }
+  .testi-card{
+    background: var(--card);
+    border-radius: 14px;
+    padding: 26px 22px;
+    box-shadow: 0 1px 0 rgba(35,43,61,0.06), 0 10px 26px -18px rgba(35,43,61,0.35);
+  }
+  .testi-stars{ color: var(--mustard); font-size: 0.95rem; letter-spacing: 2px; margin-bottom: 12px; }
+  .testi-text{ font-size: 0.92rem; color: var(--ink); font-style: italic; margin: 0 0 16px; }
+  .testi-name{ font-size: 0.8rem; color: var(--ink-soft); font-weight: 600; margin: 0; }
+
+  /* ===== AREA / MAP ===== */
+  .area-map{
+    width: 100%;
+    height: 260px;
+    border: 0;
+    border-radius: 14px;
+    margin-top: 22px;
+    display: block;
+  }
+
+  /* ===== FAQ ===== */
+  .faq-list{
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 6px 26px;
+    box-shadow: 0 1px 0 rgba(35,43,61,0.06), 0 10px 26px -18px rgba(35,43,61,0.35);
+  }
+  @media (max-width: 480px){ .faq-list{ padding: 4px 18px; } }
+  .faq-item{
+    padding: 18px 0;
+    border-bottom: 1px dashed rgba(35,43,61,0.18);
+  }
+  .faq-item:last-child{ border-bottom: none; }
+  .faq-item summary{
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-weight: 600;
+    font-size: 0.98rem;
+  }
+  .faq-item summary::-webkit-details-marker{ display: none; }
+  .faq-item summary::after{
+    content: '+';
+    flex-shrink: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.3rem;
+    color: var(--margin-red);
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::after{ transform: rotate(45deg); }
+  @media (prefers-reduced-motion: reduce){ .faq-item summary::after{ transition: none; } }
+  .faq-item p{ margin: 12px 0 0; color: var(--ink-soft); font-size: 0.92rem; }
+
   /* ===== KONTAK (chalkboard) ===== */
   .contact{
     background: var(--chalk-green);
@@ -341,6 +466,21 @@
 </style>
 </head>
 <body>
+
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a href="#" class="nav-brand">Les Ceria</a>
+      <div class="nav-links">
+        <a href="#pengajar">Pengajar</a>
+        <a href="#harga">Harga</a>
+        <a href="#testimoni">Testimoni</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#area">Area</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontak" class="nav-cta">Chat WA</a>
+      </div>
+    </div>
+  </nav>
 
   <div class="hero">
     <div class="wrap hero-inner">
@@ -479,10 +619,58 @@
     </div>
   </section>
 
+  <section id="testimoni" class="wrap">
+    <p class="section-label">Testimoni</p>
+    <h2>Kata orang tua murid.</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testi-text">Nilai Matematika anak saya naik cukup jauh dalam dua bulan. Kak Rani sabar dan gampang dipahami cara ngajarnya.</p>
+        <p class="testi-name">Bu Wulan, wali murid SD</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testi-text">Anak saya tadinya paling malas kalau disuruh belajar Kimia. Sekarang malah nungguin jadwal les tiap minggu.</p>
+        <p class="testi-name">Pak Herman, wali murid SMA</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testi-text">Jadwalnya fleksibel banget, gampang diatur ulang kalau anak lagi ada kegiatan sekolah. Sangat membantu.</p>
+        <p class="testi-name">Bu Sinta, wali murid SMP</p>
+      </div>
+    </div>
+  </section>
+
   <section id="tentang" class="wrap">
     <p class="section-label">Tentang Kami</p>
     <h2>Kenapa Les Ceria?</h2>
     <p class="about-text">Anak akan lebih mudah memahami pelajaran ketika diajar oleh pengajar yang benar-benar menguasai bidangnya. Karena itu, di Les Ceria setiap pengajar berfokus pada satu mata pelajaran keahliannya, bukan mengajar banyak hal sekaligus secara terbatas. Untuk Matematika, ada Kak Rani. Untuk Kimia, ada Kak Bima. Untuk Bahasa Inggris, ada Kak Sarah. Jadwal les dapat disesuaikan setiap minggu, dan tidak ada kontrak paket yang mengikat.</p>
+  </section>
+
+  <section id="area" class="wrap">
+    <p class="section-label">Area Layanan</p>
+    <h2>Saat ini baru melayani Pamekasan Kota.</h2>
+    <p class="about-text">Les Ceria melayani kunjungan langsung ke rumah (offline), mencakup wilayah Kecamatan Pamekasan dan sekitarnya. Supaya jadwal les tetap tepat waktu dan pengajar bisa datang dengan nyaman, layanan untuk sementara hanya mencakup area ini. Kalau alamat Anda berada di luar area, tetap boleh menghubungi kami lewat WhatsApp untuk ditanyakan lebih lanjut.</p>
+    <iframe class="area-map" src="https://www.google.com/maps?q=Pamekasan+Kota,+Pamekasan,+Jawa+Timur&output=embed" loading="lazy" title="Peta area layanan Pamekasan Kota"></iframe>
+  </section>
+
+  <section id="faq" class="wrap">
+    <p class="section-label">FAQ</p>
+    <h2>Pertanyaan yang sering ditanyakan.</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Berapa lama durasi satu kali pertemuan?</summary>
+        <p>Umumnya satu sesi berlangsung 60 sampai 90 menit, tergantung kesepakatan dan kebutuhan anak.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Bagaimana kalau jadwal berbenturan atau anak sedang sakit?</summary>
+        <p>Jadwal bisa diatur ulang lewat WhatsApp, selama dikabari lebih dulu sebelum jam les yang sudah disepakati.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Bagaimana cara pembayarannya?</summary>
+        <p>Pembayaran dilakukan per sesi atau per bulan sesuai kesepakatan, lewat transfer bank maupun tunai.</p>
+      </details>
+    </div>
   </section>
 
   <section id="kontak" class="wrap">
