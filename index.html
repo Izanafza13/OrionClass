@@ -117,7 +117,7 @@
 
 <style>
   :root{
-    --paper: #F6F4EC;
+    --paper: #FAF7F0;
     --card: #FFFFFF;
     --rule-blue: #A9C5DE;
     --margin-red: #C1443A;
@@ -154,9 +154,9 @@
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(246,244,236,0.92);
+    background: #FFFFFF;
     backdrop-filter: blur(6px);
-    border-bottom: 1px solid rgba(35,43,61,0.08);
+    border-bottom: 1px solid rgba(24, 28, 37, 0.263);
   }
   .nav-inner{
     display: flex;
@@ -252,59 +252,42 @@
     @media (prefers-reduced-motion: reduce){ .nav-links{ transition: none; } }
   }
 
-  /* ===== HERO — notebook cover ===== */
-  .hero{
-    position: relative;
-    padding: 76px 0 64px;
-    background:
-      repeating-linear-gradient(
-        to bottom,
-        transparent 0px, transparent 37px,
-        var(--rule-blue) 37px, var(--rule-blue) 38px
-      );
-    background-position: 0 118px;
-    overflow: hidden;
-  }
-  @media (max-width: 640px){
-    .hero{ padding: 48px 0 44px; }
-  }
-  .hero::before{
-    /* red margin line */
-    content:"";
-    position:absolute;
-    top:0; bottom:0; left: 56px;
-    width: 2px;
-    background: var(--margin-red);
-    opacity: 0.55;
-  }
-  @media (max-width: 640px){
-    .hero::before{ left: 28px; }
-  }
-  .hero-inner{
-    position: relative;
-    padding-left: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 36px;
-  }
-  .hero-copy{ flex: 1 1 420px; min-width: 0; }
-  .hero-visual{
-    flex: 0 0 auto;
-    display: flex;
-    justify-content: center;
-  }
-  .hero-visual img{
-    width: 300px;
-    max-width: 100%;
-    filter: drop-shadow(0 18px 30px rgba(35,43,61,0.18));
-    transform: rotate(-2deg);
-  }
-  @media (max-width: 640px){ .hero-inner{ padding-left: 16px; } }
-  @media (max-width: 780px){
-    .hero-inner{ flex-direction: column-reverse; gap: 24px; text-align: left; }
-    .hero-visual img{ width: 190px; }
-  }
+   /* ===== HERO — notebook cover ===== */
+    .hero{
+      position: relative;
+      padding: 76px 0 64px;
+      background: #FFFDF8;
+      border-bottom: 1px solid var(--rule-blue);
+      overflow: hidden;
+    }
+    @media (max-width: 640px){
+      .hero{ padding: 48px 0 44px; }
+    }
+    .hero-inner{
+      position: relative;
+      padding-left: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 36px;
+    }
+    .hero-copy{ flex: 1 1 420px; min-width: 0; }
+    .hero-visual{
+      flex: 0 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+    .hero-visual img{
+      width: 300px;
+      max-width: 100%;
+      filter: drop-shadow(0 18px 30px rgba(35,43,61,0.18));
+      transform: rotate(-2deg);
+    }
+    @media (max-width: 640px){ .hero-inner{ padding-left: 16px; } }
+    @media (max-width: 780px){
+      .hero-inner{ flex-direction: column-reverse; gap: 24px; text-align: left; }
+      .hero-visual img{ width: 190px; }
+    }
 
   .eyebrow{
     display:inline-block;
@@ -808,7 +791,7 @@
     <div class="contact">
       <h2>Yuk, mulai jadwalkan les.</h2>
       <p>Ceritakan jenjang dan kebutuhan belajar anak, kami bantu carikan paket yang pas.</p>
-      <a class="btn btn-primary" href="https://wa.me/6281390308748?text=Halo%20kak%2C%20mau%20tanya-tanya%20dong%20seputar%20orion%20private%20class" rel="noopener">Chat via WhatsApp</a>
+      <a class="btn btn-primary" href="https://wa.me/6282330804350?text=Halo%20kak%2C%20mau%20tanya-tanya%20dong%20seputar%20orion%20private%20class" rel="noopener">Chat via WhatsApp</a>
       <div class="jam">Senin sampai Sabtu, jam 08.00 sampai 20.00 WIB</div>
     </div>
   </section>
@@ -850,4 +833,4 @@
   </script>
 
 </body>
-</html>zz
+</html>
