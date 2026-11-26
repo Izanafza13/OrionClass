@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://orionclass.netlify.app/sitemap.xml
