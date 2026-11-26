@@ -195,8 +195,13 @@
   @media (prefers-reduced-motion: reduce){ .btn{ transition: none; } }
 
   /* ===== SECTIONS ===== */
-  section{ padding: 96px 0 40px; }
-  @media (max-width: 640px){ section{ padding: 64px 0 28px; } }
+  /* Tiap section full-width, ada garis di bawahnya (seperti hero) dan jarak ke isi */
+  section.wrap{
+    max-width: none; margin: 0;
+    padding: 88px max(40px, calc((100% - 1160px) / 2));
+    border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 780px){ section.wrap{ padding: 60px 24px; } }
   .section-label{ font-size: 0.95rem; font-weight: 700; color: var(--red); margin: 0 0 10px; }
   h2{
     font-family: 'Orbitron', sans-serif; font-weight: 700; color: #fff;
@@ -270,7 +275,6 @@
   .contact h2{ color: var(--ink); margin-bottom: 10px; }
   .contact p{ color: var(--ink-soft); max-width: 440px; margin: 0 auto 26px; }
   .jam{ margin-top: 22px; font-size: 0.9rem; color: var(--ink-soft); font-weight: 600; }
-  #kontak{ padding-top: 110px; }
 
   footer{ text-align: center; padding: 34px 24px 48px; color: var(--muted); font-size: 0.88rem; }
 </style>
